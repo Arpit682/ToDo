@@ -1,0 +1,32 @@
+<html ng-app="myApp">
+
+<head>
+<title>ToDoApp</title>
+<script type="text/javascript" src="../scripts/angular.min.js"></script>
+<script type="text/javascript" src="../scripts/myApp.js"></script>
+
+</head>
+
+<body>
+	<div ng-controller="TaskController as taskCtrl">
+		<table ng-repeat="task in taskCtrl.tasks">
+			<tr>
+			<td>{{task.id}}</td>
+			<td>{{task.taskDescription}}</td>
+			<td>{{task.taskStatus}}</td>
+			<td><button ng-click="taskCtrl.deleteTask(task.id)">Delete</button></td>
+			<td><button ng-click="taskCtrl.markComplete(task.id)">Mark Complete</button></td>
+			</tr>
+		</table>
+
+	
+		<div> 
+			<form novalidate ng-submit="taskCtrl.addTask()">
+				Task Description<input type="text" ng-model=taskCtrl.task.taskDescription>
+				<input type="submit">
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
