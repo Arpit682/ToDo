@@ -28,6 +28,18 @@
 			return taskStatus != "Completed"? true:false;
 		}
 
+		this.tab = function(tab, status){
+			if(tab==1) {
+				return true;
+			}
+			if(tab==2 && status=="Completed") {
+				return true;
+			}
+			if(tab==3 && status=="Pending") {
+				return true;
+			}
+		}
+		
 		$http.get("/api/allTasks.json").then(function(data){
 			self.tasks = data.data;
 		});
