@@ -12,10 +12,10 @@
 
         </div>
         <div class="col-md-7" >
-        	<div ng-controller="TaskController as taskCtrl">
+        	 <div ng-controller="TaskController as taskCtrl">
 				<div class="container">
 					<table class="table" cellpadding="0" cellspacing="0" ng-repeat="task in taskCtrl.tasks">
-						<tr ng-show="taskCtrl.tasks()">
+						<tr>
 							<td class="col-md-3">{{task.taskDescription}}</td>
 							<td class="col-md-3">{{task.taskStatus}}</td>
 							<td><button ng-click="taskCtrl.deleteTask(task.id)">Delete</button></td>
@@ -23,11 +23,11 @@
 						</tr>
 					</table>
 				</div>
-			<div> 
+			<div>
 			<form novalidate ng-submit="taskCtrl.addTask()">
 				Task Description<input type="text" ng-model=taskCtrl.task.taskDescription>
 				<input type="submit">
-			</form>
+			</form> 
 			</div>
        </div></div>
         
