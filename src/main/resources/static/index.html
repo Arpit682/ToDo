@@ -1,32 +1,37 @@
 <html ng-app="myApp">
+	<head>
+		<title>ToDoApp</title>
+		<script type="text/javascript" src="../scripts/angular.min.js"></script>
+		<script type="text/javascript" src="../scripts/myApp.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
 
-<head>
-<title>ToDoApp</title>
-<script type="text/javascript" src="../scripts/angular.min.js"></script>
-<script type="text/javascript" src="../scripts/myApp.js"></script>
+	<body>
+	<div class="row equal">
+        <div class="col-md-3" style="background-color: green"></div>
+        <div class="col-md-6" style="background-color: blue"></div>
+        <div class="col-md-3" style="background-color: yellow"></div>
+  	</div>
+  	
 
-</head>
-
-<body>
-	<div ng-controller="TaskController as taskCtrl">
-		<table ng-repeat="task in taskCtrl.tasks">
-			<tr>
-			<td>{{task.id}}</td>
-			<td>{{task.taskDescription}}</td>
-			<td>{{task.taskStatus}}</td>
-			<td><button ng-click="taskCtrl.deleteTask(task.id)">Delete</button></td>
-			<td><button ng-click="taskCtrl.markComplete(task.id)">Mark Complete</button></td>
-			</tr>
-		</table>
-
-	
-		<div> 
-			<form novalidate ng-submit="taskCtrl.addTask()">
-				Task Description<input type="text" ng-model=taskCtrl.task.taskDescription>
-				<input type="submit">
-			</form>
+		<div ng-controller="TaskController as taskCtrl">
+			<div class="container">
+				<table class="table" cellpadding="0" cellspacing="0" ng-repeat="task in taskCtrl.tasks">
+					<tr>
+					<td class="col-md-3">{{task.taskDescription}}</td>
+					<td class="col-md-3">{{task.taskStatus}}</td>
+					<td><button ng-click="taskCtrl.deleteTask(task.id)">Delete</button></td>
+					<td><button ng-show="taskCtrl.isCompleted(task.id)" ng-click="taskCtrl.markComplete(task.id)">Mark Complete</button></td>
+					</tr>
+				</table>
+			</div>
+			<div> 
+				<form novalidate ng-submit="taskCtrl.addTask()">
+					Task Description<input type="text" ng-model=taskCtrl.task.taskDescription>
+					<input type="submit">
+				</form>
+			</div>
 		</div>
-	</div>
-</body>
+	</body>
 
 </html>

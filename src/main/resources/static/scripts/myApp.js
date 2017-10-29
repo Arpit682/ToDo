@@ -17,14 +17,19 @@
 				this.task = {};
 			});
 		};
+		
+		this.markComplete = function(taskId){
+			$http.put("api/markComplete/" + taskId).then(function(data){
+				self.tasks = data.data;
+			});
+		};
+		
+		this.isCompleted = function(){
+			
+		}
 
 		$http.get("/api/allTasks.json").then(function(data){
 			self.tasks = data.data;
 		});
-		
-		
 	}]);
-	
-
-
 })();

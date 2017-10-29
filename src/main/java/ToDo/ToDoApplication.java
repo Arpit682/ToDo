@@ -23,9 +23,8 @@ public class ToDoApplication {
 		return (args) -> {
 			// save a couple of customers
 			repository.deleteAll();
-			repository.save(new Task("Buy", ""));
-			repository.save(new Task("Chloe", "O'Brian"));
-			repository.save(new Task("Kim", "Bauer"));
+			repository.save(new Task("Buy", "Pending"));
+			repository.save(new Task("Run", "Completed"));
 		};
 	}
 }

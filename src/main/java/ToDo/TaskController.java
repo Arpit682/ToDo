@@ -40,6 +40,18 @@ public class TaskController {
 		tasks = repository.findAll();
 		return this.tasks;
 	}
+	
+	//Mark a task resolved
+	@RequestMapping(value="/api/markComplete/{taskId}", method = RequestMethod.PUT)
+	public List<Task> markComplete(@PathVariable("taskId") Long id){
+		
+		Task t = repository.findOne(id);
+		t.setTaskStatus("Completed");
+		repository.save(t);
+		//repository.save(new Task(task.getTaskDescription(), "Pending"));
+		tasks = repository.findAll();
+		return this.tasks;
+	}
 
    
  
