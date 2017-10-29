@@ -24,8 +24,8 @@
 			});
 		};
 		
-		this.isCompleted = function(){
-			
+		this.isCompleted = function(taskStatus){
+			return taskStatus != "Completed"? true:false;
 		}
 
 		$http.get("/api/allTasks.json").then(function(data){
