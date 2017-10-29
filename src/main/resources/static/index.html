@@ -9,7 +9,7 @@
 	<body>
 	<div class="row equal" ng-controller="TaskController as taskCtrl">
         <div class="col-md-2" > 
-			<section>
+			<section ng-init="tab = 1">
 			<ul>
 				<li><a href ng-click="tab=1">All Tasks</a></li>
 				<li><a href ng-click="tab=2">Completed Tasks</a></li>
