@@ -25,6 +25,8 @@ public class ToDoApplication {
 			repository.deleteAll();
 			repository.save(new Task("Buy", "Pending"));
 			repository.save(new Task("Run", "Completed"));
+			repository.save(new Task("Move", "Pending"));
+			repository.save(new Task("Work", "Pending"));
 		};
 	}
 }
