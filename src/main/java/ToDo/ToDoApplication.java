@@ -4,14 +4,13 @@ package ToDo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
 import ToDo.entity.Task;
 import ToDo.repository.TaskRepository;
 
 @SpringBootApplication
-@EntityScan("ToDo.entity")
+
 public class ToDoApplication {
 
 	public static void main(String[] args) {
