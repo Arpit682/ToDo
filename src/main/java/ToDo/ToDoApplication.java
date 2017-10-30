@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
 import ToDo.entity.Task;
-import ToDo.entity.TaskRepository;
+import ToDo.repository.TaskRepository;
 
 @SpringBootApplication
 @EntityScan("ToDo.entity")

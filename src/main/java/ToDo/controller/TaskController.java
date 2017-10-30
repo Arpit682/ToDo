@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ToDo.entity.Task;
-import ToDo.entity.TaskRepository;
+import ToDo.repository.TaskRepository;
 
 @RestController
 public class TaskController {
