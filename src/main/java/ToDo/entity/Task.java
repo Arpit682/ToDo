@@ -18,8 +18,6 @@ public class Task {
 	public Task() {}
 	
 	public Task(String taskDescription, String taskStatus) {
-		super();
-
 		this.taskDescription = taskDescription;
 		this.taskStatus = taskStatus;
 	}
