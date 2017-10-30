@@ -21,7 +21,7 @@ public class ToDoApplication {
 	@Bean
 	public CommandLineRunner demo(TaskRepository repository) {
 		return (args) -> {
-			// save a couple of customers
+			// save a couple of Tasks
 			repository.deleteAll();
 			repository.save(new Task("Buy", "Pending"));
 			repository.save(new Task("Run", "Completed"));
