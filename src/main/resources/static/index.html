@@ -26,7 +26,7 @@
 							<td class="col-md-3">{{task.taskDescription}}</td>
 							<td class="col-md-3">{{task.taskStatus}}</td>
 							<td><button ng-click="taskCtrl.deleteTask(task)">Delete</button></td>
-							<td><button ng-show="taskCtrl.isCompleted(task.taskStatus)" ng-click="taskCtrl.markComplete(task.id)">Mark Complete</button></td>
+							<td><button ng-show="taskCtrl.isCompleted(task.taskStatus)" ng-click="taskCtrl.markComplete(task)">Mark Complete</button></td>
 						</tr>
 					</table>
 				</div>

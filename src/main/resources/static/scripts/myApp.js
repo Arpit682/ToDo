@@ -4,7 +4,7 @@
 	app.controller("TaskController",['$http', '$scope', function($http, $scope){
 		var self = this;
 		self.deleteTask = function(task){
-			$http.delete("/api/deleteTask/"+ task.id ).then(function(data){
+			$http.delete("/api/deleteTask/"+ task.id).then(function(data){
 				 var index = $scope.tasks.indexOf(task);
 				 $scope.tasks.splice(index, 1);    
 			});
@@ -19,9 +19,9 @@
 			});
 		};
 		
-		this.markComplete = function(taskId){
-			$http.put("api/markComplete/" + taskId).then(function(data){
-				self.tasks = data.data;
+		this.markComplete = function(task){
+			$http.put("api/markComplete/" + task.id).then(function(data){
+				task.taskStatus = "Completed";
 			});
 		};
 		
