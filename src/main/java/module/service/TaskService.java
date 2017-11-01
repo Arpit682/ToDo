@@ -14,6 +14,8 @@ public class TaskService {
     @Autowired
     TaskRepository repository;
 
+    final String STATUS_PENDING = "Pending";
+    final String STATUS_COMPLETED = "Completed";
     public List<Task> listAllTasks() {
         return repository.findAll();
     }
@@ -24,12 +26,12 @@ public class TaskService {
     }
 
     public Task createTask(Task task) {
-        return repository.save(new Task(task.getTaskDescription(), "Pending"));
+        return repository.save(new Task(task.getTaskDescription(), STATUS_PENDING));
     }
 
     public void updateTask(Long id) {
         Task t = repository.findOne(id);
-        t.setTaskStatus("Completed");
+        t.setTaskStatus(STATUS_COMPLETED);
         repository.save(t);
     }
 }

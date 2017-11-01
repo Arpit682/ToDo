@@ -14,7 +14,7 @@
             var task = this.task;
             $http.post("/api/newTask", task).then(function (data) { 
                 $scope.tasks.push(data.data);
-                task = {};
+                task.taskDescription = "";
             });
         };
 
