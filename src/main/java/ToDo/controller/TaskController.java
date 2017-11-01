@@ -41,8 +41,8 @@ public class TaskController {
 	
 	//Mark a task resolved
 	@RequestMapping(value="/api/markComplete/{taskId}", method = RequestMethod.PUT)
-	public List<Task> markComplete(@PathVariable("taskId") Long id){
+	public Boolean markComplete(@PathVariable("taskId") Long id){
 		taskService.updateTask(id);
-		return this.tasks;
+		return true;
 	}
 }
