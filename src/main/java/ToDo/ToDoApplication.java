@@ -10,7 +10,6 @@ import ToDo.entity.Task;
 import ToDo.repository.TaskRepository;
 
 @SpringBootApplication
-
 public class ToDoApplication {
 
 	public static void main(String[] args) {

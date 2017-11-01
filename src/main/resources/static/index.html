@@ -3,7 +3,7 @@
 		<title>ToDoApp</title>
 		<script type="text/javascript" src="../scripts/angular.min.js"></script>
 		<script type="text/javascript" src="../scripts/myApp.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../styles/bootstrap.min.css">
 	</head>
 
 	<body>
@@ -21,11 +21,11 @@
         <div class="col-md-7" >
         	 <div >
 				<div class="container">
-					<table class="table" cellpadding="0" cellspacing="0" ng-repeat="task in taskCtrl.tasks">
-						<tr ng-show="taskCtrl.tab(tab, task.taskStatus)">
+					<table class="table" cellpadding="0" cellspacing="0">
+						<tr ng-show="taskCtrl.tab(tab, task.taskStatus)"  ng-repeat="task in tasks">
 							<td class="col-md-3">{{task.taskDescription}}</td>
 							<td class="col-md-3">{{task.taskStatus}}</td>
-							<td><button ng-click="taskCtrl.deleteTask(task.id)">Delete</button></td>
+							<td><button ng-click="taskCtrl.deleteTask(task)">Delete</button></td>
 							<td><button ng-show="taskCtrl.isCompleted(task.taskStatus)" ng-click="taskCtrl.markComplete(task.id)">Mark Complete</button></td>
 						</tr>
 					</table>

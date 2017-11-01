@@ -1,20 +1,21 @@
 (function(){
 	var app = angular.module("myApp", []);
 		
-	var tasks = {};
-	app.controller("TaskController",['$http', function($http){
+	app.controller("TaskController",['$http', '$scope', function($http, $scope){
 		var self = this;
-		self.deleteTask = function(taskId){
-			$http.delete("/api/deleteTask/"+ taskId ).then(function(data){
-				self.tasks = data.data;
+		self.deleteTask = function(task){
+			$http.delete("/api/deleteTask/"+ task.id ).then(function(data){
+				 var index = $scope.tasks.indexOf(task);
+				 $scope.tasks.splice(index, 1);    
 			});
-		}
+		};
+
 		
-		
-		this.addTask = function(tasks){
-			$http.post("/api/newTask", this.task).then(function (data) { 
-				self.tasks = data.data;
-				this.task = {};
+		this.addTask = function(){
+			var task = this.task;
+			$http.post("/api/newTask", task).then(function (data) { 
+				$scope.tasks.push(data.data);
+				task = {};
 			});
 		};
 		
@@ -26,7 +27,7 @@
 		
 		this.isCompleted = function(taskStatus){
 			return taskStatus != "Completed"? true:false;
-		}
+		};
 
 		this.tab = function(tab, status){
 			if(tab==1) {
@@ -41,7 +42,7 @@
 		}
 		
 		$http.get("/api/allTasks.json").then(function(data){
-			self.tasks = data.data;
+			$scope.tasks = data.data;
 		});
 	}]);
 })();
