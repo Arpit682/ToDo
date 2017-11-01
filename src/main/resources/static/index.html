@@ -36,8 +36,8 @@
                         <tr ng-show="taskCtrl.tab(tab, task.taskStatus)"  ng-repeat="task in tasks">
                             <td class="col-md-3">{{task.taskDescription}}</td>
                             <td class="col-md-3">{{task.taskStatus}}</td>
-                            <td><button class="btn" ng-click="taskCtrl.deleteTask(task)">Delete</button></td>
-                            <td><button class="btn" ng-show="taskCtrl.isCompleted(task.taskStatus)" ng-click="taskCtrl.markComplete(task)">Mark Complete</button></td>
+                            <td><button class="btn btn-danger" ng-click="taskCtrl.deleteTask(task)">Delete</button></td>
+                            <td><button class="btn btn-danger" ng-show="taskCtrl.isCompleted(task.taskStatus)" ng-click="taskCtrl.markComplete(task)">Mark Complete</button></td>
                         </tr>
                     </table>
                 </div>
