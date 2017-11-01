@@ -33,8 +33,8 @@ public class TaskController {
      * Delete a task based on the Id
      * @param Id of the task to be deleted
      */
-    @RequestMapping(value="/api/deleteTask/{taskId}", method = RequestMethod.DELETE)
-    public Boolean deleteTasks(@PathVariable("taskId") Long id){
+    @RequestMapping(value="/api/deleteTask/{id}", method = RequestMethod.DELETE)
+    public Boolean deleteTasks(@PathVariable("id") Long id){
         taskService.deleteTask(id);
         return true;
     }
@@ -53,8 +53,8 @@ public class TaskController {
      * Mark the task completed
      * @param Id of the task to be updated
      */
-    @RequestMapping(value="/api/markComplete/{taskId}", method = RequestMethod.PUT)
-    public Boolean markComplete(@PathVariable("taskId") Long id){
+    @RequestMapping(value="/api/markComplete/{id}", method = RequestMethod.PUT)
+    public Boolean markComplete(@PathVariable("id") Long id){
         taskService.updateTask(id);
         return true;
     }

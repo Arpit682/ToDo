@@ -6,7 +6,7 @@
         self.deleteTask = function(task){
             $http.delete("/api/deleteTask/"+ task.id).then(function(data){
                 var index = $scope.tasks.indexOf(task);
-                $scope.tasks.splice(index, 1);    
+                $scope.tasks.splice(index, 1);
             });
         };
 
