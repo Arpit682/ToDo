@@ -1,8 +1,6 @@
 <html ng-app="myApp">
     <head>
         <title>ToDoApp</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../scripts/angular.min.js"></script>
         <script type="text/javascript" src="../scripts/myApp.js"></script>
         <link rel="stylesheet" href="../styles/bootstrap.min.css">
@@ -17,9 +15,9 @@
             <div class="col-md-2 left_panel"> 
                 <section ng-init="tab = 1">
                     <ul id="top_filters">
-                        <li class="filter"><a href ng-click="tab=1">All Tasks</a></li>
-                        <li class="filter"><a href ng-click="tab=2">Completed Tasks</a></li>
-                        <li class="filter"><a href ng-click="tab=3">Pending Tasks</a></li>
+                        <li class="filter" ng-class="{ active:tab == 1 }"><a href ng-click="tab=1">All Tasks</a></li>
+                        <li class="filter" ng-class="{ active:tab == 2 }"><a href ng-click="tab=2">Completed Tasks</a></li>
+                        <li class="filter" ng-class="{ active:tab == 3 }"><a href ng-click="tab=3">Pending Tasks</a></li>
                     </ul>
                 </section>
             </div>
@@ -36,7 +34,7 @@
                         <tr ng-show="taskCtrl.tab(tab, task.taskStatus)"  ng-repeat="task in tasks">
                             <td class="col-md-3">{{task.taskDescription}}</td>
                             <td class="col-md-3">{{task.taskStatus}}</td>
-                            <td><button class="btn btn-danger" ng-click="taskCtrl.deleteTask(task)">Delete</button></td>
+                            <td><button class="btn btn-danger" ng-click="vm.openModal('custom-modal-1')">Delete</button></td>
                             <td><button class="btn btn-danger" ng-show="taskCtrl.isCompleted(task.taskStatus)" ng-click="taskCtrl.markComplete(task)">Mark Complete</button></td>
                         </tr>
                     </table>
@@ -45,7 +43,7 @@
             <div class="col-md-2">
                 <form novalidate ng-submit="taskCtrl.addTask()">
                     New Task <input type="text" ng-model="taskCtrl.task.taskDescription">
-                    <input class="btn" type="submit" value="Add Task">
+                    <input class="btn btn-danger" type="submit" value="Add Task">
                 </form> 
             </div>
         </div>
