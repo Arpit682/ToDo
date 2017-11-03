@@ -28,12 +28,16 @@
                         <tr ng-show="tasks.length >0">
                             <th>Task Description</th>
                             <th>Status</th>
+                            <th>Date Created</th>
+                            <th>Date Completed</th>
                             <th colspan=2>Action</th>
                         </tr>
 
                         <tr ng-show="taskCtrl.tab(tab, task.taskStatus)"  ng-repeat="task in tasks">
                             <td class="col-md-3">{{task.taskDescription}}</td>
                             <td class="col-md-3">{{task.taskStatus}}</td>
+                            <td class="col-md-3">{{task.creationDate | date:'yyyy-MM-dd'}}</td>
+                            <td class="col-md-3">{{task.completionDate | date:'yyyy-MM-dd'}}</td>
                             <td><button class="btn btn-danger" ng-click="taskCtrl.deleteTask(task)">Delete</button></td>
                             <td><button class="btn btn-danger" ng-show="taskCtrl.isCompleted(task.taskStatus)" ng-click="taskCtrl.markComplete(task)">Mark Complete</button></td>
                         </tr>

@@ -21,6 +21,7 @@
         this.markComplete = function(task){
             $http.put("api/markComplete/" + task.id).then(function(data){
                 task.taskStatus = "Completed";
+                task.completionDate = data.data.completionDate;
             });
         };
 

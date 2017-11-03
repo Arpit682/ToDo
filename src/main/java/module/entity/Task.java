@@ -1,5 +1,7 @@
 package module.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,13 +15,18 @@ public class Task {
     private Long id;
     String taskDescription;
     String taskStatus;
+    Date creationDate;
+    Date completionDate;
 
     public Task() {}
 
-    public Task(String taskDescription, String taskStatus) {
+    public Task(String taskDescription, String taskStatus, Date creationDate, Date completionDate) {
         this.taskDescription = taskDescription;
         this.taskStatus = taskStatus;
+        this.creationDate = creationDate;
+        this.completionDate = completionDate;
     }
+
     public Long getId() {
         return id;
     }
@@ -37,5 +44,20 @@ public class Task {
     }
     public void setTaskStatus(String taskStatus) {
         this.taskStatus = taskStatus;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+    public Date getCompletionDate() {
+        return completionDate;
+    }
+
+    public void setCompletionDate(Date completionDate) {
+        this.completionDate = completionDate;
     }
 }

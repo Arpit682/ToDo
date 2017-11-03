@@ -26,12 +26,13 @@ public class TaskService {
     }
 
     public Task createTask(Task task) {
-        return repository.save(new Task(task.getTaskDescription(), STATUS_PENDING));
+        return repository.save(new Task(task.getTaskDescription(), STATUS_PENDING, new java.util.Date(), null));
     }
 
-    public void updateTask(Long id) {
+    public Task updateTask(Long id) {
         Task t = repository.findOne(id);
         t.setTaskStatus(STATUS_COMPLETED);
-        repository.save(t);
+        t.setCompletionDate(new java.util.Date());
+        return repository.save(t);
     }
 }

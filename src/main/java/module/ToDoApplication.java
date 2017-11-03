@@ -20,10 +20,10 @@ public class ToDoApplication {
         return (args) -> {
             // save a couple of Tasks
             repository.deleteAll();
-            repository.save(new Task("Buy", "Pending"));
-            repository.save(new Task("Run", "Completed"));
-            repository.save(new Task("Move", "Pending"));
-            repository.save(new Task("Work", "Pending"));
+            repository.save(new Task("Buy", "Pending", new java.util.Date(), null));
+            repository.save(new Task("Run", "Completed", new java.util.Date(), null));
+            repository.save(new Task("Move", "Pending", new java.util.Date(), null));
+            repository.save(new Task("Work", "Pending", new java.util.Date(), null));
         };
     }
 }
