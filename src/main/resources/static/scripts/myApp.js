@@ -12,7 +12,10 @@
 
         this.addTask = function(){
             var task = this.task;
-            $http.post("/api/newTask", task).then(function (data) { 
+            if(!task) {
+                alert("Please input task description");
+            }
+            $http.post("/api/newTask", task).then(function (data) {
                 $scope.tasks.push(data.data);
                 task.taskDescription = "";
             });

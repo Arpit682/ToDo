@@ -1,7 +1,12 @@
 .tbl{
     width: 60%;
+    table-layout: fixed ;
 }
 
+.tbl th td{
+    min-width: 100px;
+    max-width: 100px;
+}
 #top_bar{
     height: 50px;
     top:0;

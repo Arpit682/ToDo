@@ -21,9 +21,10 @@ public class ToDoApplication {
             // save a couple of Tasks
             repository.deleteAll();
             repository.save(new Task("Buy", "Pending", new java.util.Date(), null));
-            repository.save(new Task("Run", "Completed", new java.util.Date(), null));
+            repository.save(new Task("Run", "Completed", new java.util.Date(), new java.util.Date()));
             repository.save(new Task("Move", "Pending", new java.util.Date(), null));
             repository.save(new Task("Work", "Pending", new java.util.Date(), null));
+            repository.save(new Task("Leave", "Pending", new java.util.Date(), null));
         };
     }
 }
