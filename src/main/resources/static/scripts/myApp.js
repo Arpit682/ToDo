@@ -12,13 +12,14 @@
 
         this.addTask = function(){
             var task = this.task;
-            if(!task) {
-                alert("Please input task description");
+            if(!task || task.taskDescription=="") {
+                alert("Please enter task description");
+            } else {
+                 $http.post("/api/newTask", task).then(function (data) {
+                 $scope.tasks.push(data.data);
+                 task.taskDescription = "";
+                 });
             }
-            $http.post("/api/newTask", task).then(function (data) {
-                $scope.tasks.push(data.data);
-                task.taskDescription = "";
-            });
         };
 
         this.markComplete = function(task){
