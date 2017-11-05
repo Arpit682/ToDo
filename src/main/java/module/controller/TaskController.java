@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import module.entity.Task;
-import module.service.TaskService;;
+import module.service.TaskService;
 
 @RestController
 public class TaskController {

@@ -9,13 +9,11 @@ import module.entity.Task;
 import module.repository.TaskRepository;
 
 @Repository
-public class TaskService {
+public class TaskService implements ITaskService{
 
     @Autowired
     TaskRepository repository;
 
-    final String STATUS_PENDING = "Pending";
-    final String STATUS_COMPLETED = "Completed";
     public List<Task> listAllTasks() {
         return repository.findAll();
     }
